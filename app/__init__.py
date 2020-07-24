@@ -18,7 +18,8 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    mongo.init_app(app)
+    with app.app_context():
+        mongo.init_app(app) 
 
 
     print(f'ENV is set to: {app.config["ENV"]}')
