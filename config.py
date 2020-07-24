@@ -35,7 +35,7 @@ class DevelopmentConfig(Config):
         host= DB_HOST,
         db= DB_NAME 
     ) """
-    DB_URI = '{service}://{host}/{db}'.format(service = DB_SERVICE, host = DB_HOST, db = DB_NAME)
+    MONGO_URI = '{service}://{host}/{db}'.format(service = DB_SERVICE, host = DB_HOST, db = DB_NAME)
 
     SESSION_COOKIE_SECURE = False
 
