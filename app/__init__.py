@@ -20,7 +20,10 @@ def create_app(test_config=None):
 
     mongo.init_app(app)
 
-
     print(f'ENV is set to: {app.config["ENV"]}')
+
+    #Resgister Blueprints
+    from .user.routes import user_blueprint 
+    app.register_blueprint(user_blueprint)
 
     return app
