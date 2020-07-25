@@ -1,16 +1,21 @@
-from flask import Blueprint
-from flask_restx import Resource
+from flask import Blueprint, request, Response, jsonify
+import json
+from .service import validateLogin,register, getAll
 
 user_blueprint = Blueprint('user_blueprint',__name__)
 
 @user_blueprint.route('/users', methods = ['GET'])
 def get_users():
-    return {'msg': 'recibido'}
+    return getAll()
 
 @user_blueprint.route('/users', methods = ['POST'])
 def create_user():
-
-    return 'Ok'
+    #Receiving data
+    user_dict = request.get_json()
+    #print(data)
+    #Validate Json
+    register(user_dict)
+    return 'ok'
 
 @user_blueprint.route('/users', methods = ['PUT'])
 def update_user():
