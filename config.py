@@ -7,9 +7,23 @@ class Config(object):
     CSRF_ENABLED = True
     PROJECT_NAME =os.environ.get('PROJECT_NAME')
     CURRENT_DIR =os.path.dirname(os.path.abspath(__file__))
+    #DB configuration
     DB_SERVICE = os.environ.get('DB_SERVICE')
+    DB_NAME = os.environ.get('DB_NAME_DEV')
+    DB_HOST = os.environ.get('DB_HOST_DEV')
+    DB_PORT = os.environ.get('DB_PORT_DEV')
+    DB_SERVICE = os.environ.get('DB_SERVICE_DEV')
+    #DATABASES URI
+    MONGO_URI = '{service}://{host}/{db}'.format(service = DB_SERVICE, host = DB_HOST, db = DB_NAME)
+
+    #JWT CONFIGURATION
+    JWT_SECRET_KEY = os.environ.get('JWT_KEY')
 
     SESSION_COOKIE_SECURE = True
+    SECRET_KEY = os.environ.get('RANDOM_KEY')
+
+    #APPLICATION_ROOT = ':/api/v1'
+
 
 
 #Config to running in production
@@ -35,7 +49,7 @@ class DevelopmentConfig(Config):
         host= DB_HOST,
         db= DB_NAME 
     ) """
-    DB_URI = '{service}://{host}/{db}'.format(service = DB_SERVICE, host = DB_HOST, db = DB_NAME)
+    MONGO_URI = '{service}://{host}/{db}'.format(service = DB_SERVICE, host = DB_HOST, db = DB_NAME)
 
     SESSION_COOKIE_SECURE = False
 

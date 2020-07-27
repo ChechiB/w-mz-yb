@@ -1,3 +1,3 @@
-from flask_mongoengine  import MongoEngine
+from flask_mongoengine import MongoEngine
 
 mongo = MongoEngine()
