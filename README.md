@@ -1,5 +1,6 @@
 # Whetu Ejercicio- back end
 _Desarrollado en python utilizando Flask como microframework y MongoDB_
+_S.O: Ubuntu 20.04 LTS_
  
 ## Instalación 🔧 
 
@@ -7,7 +8,7 @@ _Desarrollado en python utilizando Flask como microframework y MongoDB_
  * check instalación: python --version
 
 
-_🔧 Instalar [MongoDB](https://www.mongodb.com/try/download/community)_
+_🔧 Instalar [MongoDB 3.6.8](https://www.mongodb.com/try/download/community)_
 
 _🔧 Instalar las siguientes librerias desde la consola para poder trabajar con ambientes:_
 ```
