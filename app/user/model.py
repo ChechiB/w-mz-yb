@@ -8,7 +8,7 @@ class User(me.Document):
     lastname = me.StringField(required=True, max_length=100)
     password = me.StringField(required=True, min_length=8, max_length=256)
     email = me.EmailField(required=True, unique=True, max_length=256)
-    is_admin = me.BooleanField(required=True, default=True)
+    is_admin = me.BooleanField(required=True, default=False)
     #Metadata
     meta = {'collection': 'user'}
 
