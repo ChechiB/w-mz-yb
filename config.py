@@ -14,7 +14,7 @@ class Config(object):
     DB_PORT = os.environ.get('DB_PORT_DEV')
     DB_SERVICE = os.environ.get('DB_SERVICE_DEV')
     #DATABASES URI
-    MONGO_URI = '{service}://{host}/{db}'.format(service = DB_SERVICE, host = DB_HOST, db = DB_NAME)
+    MONGO_URI = '{service}://{host}:{port}/{db}'.format(service = DB_SERVICE, host = DB_HOST, port = DB_PORT, db = DB_NAME)
 
     #JWT CONFIGURATION
     JWT_SECRET_KEY = os.environ.get('JWT_KEY')
@@ -49,7 +49,7 @@ class DevelopmentConfig(Config):
         host= DB_HOST,
         db= DB_NAME 
     ) """
-    MONGO_URI = '{service}://{host}/{db}'.format(service = DB_SERVICE, host = DB_HOST, db = DB_NAME)
+    MONGO_URI = '{service}://{host}:{port}/{db}'.format(service = DB_SERVICE, host = DB_HOST,port = DB_PORT, db = DB_NAME)
 
     SESSION_COOKIE_SECURE = False
 

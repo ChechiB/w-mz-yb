@@ -9,8 +9,6 @@ class User(me.Document):
     password = me.StringField(required=True, min_length=8, max_length=256)
     email = me.EmailField(required=True, unique=True, max_length=256)
     is_admin = me.BooleanField(required=True, default=True)
-    date_created = me.DateTimeField(default=datetime.utcnow) 
-
     #Metadata
     meta = {'collection': 'user'}
 
