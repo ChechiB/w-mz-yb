@@ -19,7 +19,7 @@ def create_app():
         pass
     
     with app.app_context():
-        #mongo.init_app(app)
+        #connect('whetuEjercicio','mongodb://localhost:27017' )
         connect(app.config['DB_NAME'],host = app.config['MONGO_URI'])
 
     print(f'ENV is set to: {app.config["ENV"]}')

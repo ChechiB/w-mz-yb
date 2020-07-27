@@ -16,7 +16,7 @@ def get_users(data):
         print(data)
         hasPermission(data['id'])
         result = getAll()
-        return make_response({'status': 202, 'message': result}), 202
+        return make_response({'status': 200, 'message': result}), 200
     except Exception as ex:
         json_msg = json.loads(ex.args[0])
         return make_response(json_msg), json_msg['status']
@@ -55,7 +55,7 @@ def login():
         if v:
             id_user = login_user(user_dict)
             token = create_token(id_user)
-            return {'token':token.decode('UTF-8')}
+            return make_response({'status':200, 'token':token.decode('UTF-8')}),200
         else:
             schema_errors = validator.errors
             return make_response({'status':400,'message':"Invalid JSON:{e}".format(e = schema_errors)}),400
@@ -72,3 +72,6 @@ def logout():
 def server_error():
     return make_response(jsonify({'error': 'Internal Server Error'}), 500)
 
+@user_blueprint.errorhandler(404)
+def not_found():
+    return make_response(jsonify({'error': 'Not found'}), 400)
